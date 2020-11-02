@@ -31,6 +31,7 @@ window.addEventListener("load", function() {
       let fuelStatus = document.querySelector("#fuelStatus");
       let cargoStatus = document.querySelector("#cargoStatus");
       
+      
 
       // if a field is empty, throw an error and refuse to load the input
 
