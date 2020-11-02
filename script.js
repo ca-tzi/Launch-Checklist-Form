@@ -24,12 +24,12 @@ window.addEventListener("load", function() {
       let copilotInput = document.querySelector("input[name=copilotName]");
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
-      let copilotStatus = document.querySelector("copilotStatus"); //should this be flightStatus or copilotStatus??? -- come back to this if error arises
-      let pilotStatus = document.querySelector("pilotStatus");
-      let faultyItems = document.querySelector("faultyItems");
-      let statusText = document.querySelector("launchStatus");
-      let fuelStatus = document.querySelector("fuelStatus");
-      let cargoStatus = document.querySelector("cargoStatus");
+      let copilotStatus = document.querySelector("#copilotStatus"); //should this be flightStatus or copilotStatus??? -- come back to this if error arises
+      let pilotStatus = document.querySelector("#pilotStatus");
+      let faultyItems = document.querySelector("#faultyItems");
+      let statusText = document.querySelector("#launchStatus");
+      let fuelStatus = document.querySelector("#fuelStatus");
+      let cargoStatus = document.querySelector("#cargoStatus");
       
 
       // if a field is empty, throw an error and refuse to load the input
@@ -57,8 +57,8 @@ window.addEventListener("load", function() {
             //update copilot and pilot status regardless of other inputs
 
 
-            copilotStatus.innerHTML = `${copilotStatus.value} is ready for launch!`;
-            pilotStatus.innerHTML = `${pilotStatus.value} is ready for launch!`;
+            copilotStatus.innerHTML = `${copilotInput.value} is ready for launch!`;
+            pilotStatus.innerHTML = `${pilotInput.value} is ready for launch!`;
 
 
             // if the fuel level is too low, or the cargo mass is too high, the box at the bottom of the screen changes its appearance, 
@@ -89,7 +89,8 @@ window.addEventListener("load", function() {
 
 
                statusText.style.color = "green";
-               statusText.innerHTML = "Shuttle is ready for launch!"
+               statusText.innerHTML = "Shuttle is ready for launch!";
+               faultyItems.style.visibility = 'hidden';
 
                //fetch json from link, then post in missionTarget div
 
@@ -108,7 +109,7 @@ window.addEventListener("load", function() {
                   <img src='${json[0].image}'>`;
                });
             });
-         }
+         }event.preventDefault();
       }
    });
 });
