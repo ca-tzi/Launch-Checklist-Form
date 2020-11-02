@@ -12,6 +12,21 @@
 <img src="${}">
 */
 window.addEventListener("load", function() {
+   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
+                  response.json().then(function(json){
+                  let missionTarget = document.querySelector("#missionTarget");
+                  missionTarget.innerHTML = 
+                  `<h2>Mission Destination</h2>
+                  <ol>
+                     <li>Name: ${json[0].name}</li>
+                     <li>Diameter: ${json[0].diameter}</li>
+                     <li>Star: ${json[0].star}</li>
+                     <li>Distance from Earth: ${json[0].distance}</li>
+                     <li>Number of Moons: ${json[0].moons}</li>
+                  </ol>
+                  <img src='${json[0].image}'>`;
+               });
+            });   
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event){
 
@@ -31,7 +46,7 @@ window.addEventListener("load", function() {
       let fuelStatus = document.querySelector("#fuelStatus");
       let cargoStatus = document.querySelector("#cargoStatus");
       
-      
+
 
       // if a field is empty, throw an error and refuse to load the input
 
@@ -95,21 +110,7 @@ window.addEventListener("load", function() {
 
                //fetch json from link, then post in missionTarget div
 
-                  fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
-                  response.json().then(function(json){
-                  let missionTarget = document.querySelector("missionTarget");
-                  missionTarget.innerHTML = 
-                  `<h2>Mission Destination</h2>
-                  <ol>
-                     <li>Name: ${json[0].name}</li>
-                     <li>Diameter: ${json[0].diameter}</li>
-                     <li>Star: ${json[0].star}</li>
-                     <li>Distance from Earth: ${json[0].distance}</li>
-                     <li>Number of Moons: ${json[0].moons}</li>
-                  </ol>
-                  <img src='${json[0].image}'>`;
-               });
-            });
+                  
          }event.preventDefault();
       }
    });
