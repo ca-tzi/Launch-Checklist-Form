@@ -57,8 +57,8 @@ window.addEventListener("load", function() {
             //update copilot and pilot status regardless of other inputs
 
 
-            copilotStatus.innerHTML = `${copilotStatus.value} is ready for launch!`
-            pilotStatus.innerHTML = `${pilotStatus.value} is ready for launch!`
+            copilotStatus.innerHTML = `${copilotStatus.value} is ready for launch!`;
+            pilotStatus.innerHTML = `${pilotStatus.value} is ready for launch!`;
 
 
             // if the fuel level is too low, or the cargo mass is too high, the box at the bottom of the screen changes its appearance, 
